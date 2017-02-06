@@ -4,46 +4,43 @@
  * Summing from list
  */
 
-
-sumFor(data)
-{
+const testNums = [1, 2, 3, 4];
+function sumFor(data) {
   let sum = 0;
-  for(let i =0; i<data.length; i++)
-  {
-    sum += data.pop();
+  for ( let num of data) {
+    sum += num;
   }
   return sum;
 }
+console.log(sumFor(testNums));
 
-sumWhile(data)
-{
+function sumWhile(data) {
   let sum = 0;
   let i = 0;
-  while(i<data.length)
-  {
-    sum+=data.pop();
+  while(i<data.length) {
+    sum+=data[i];
     i++;
   }
   return sum;
 }
+console.log(sumWhile(testNums));
 
-sumRecursion(data)
-{
+function sumRecursion(data) {
   let sum = 0;
-  if(data.length == 0)
-  {
+  if(data.length == 0) {
     return sum;
   }
-  else
-  {
+  else {
     sum += data.pop();
     return sum+=sumRecursion(data);
 
   }
 
 }
+console.log(sumRecursion(testNums));
 
-sumTheSimpleWay(data)
+function sumTheSimpleWay(data)
 {
-  return _.reduce(data, function(memo, data){return data + memo;},0);
+  return _.reduce(data, function sumNum(memo, nums){ return memo + nums;},0);
 }
+console.log(sumTheSimpleWay(testNums));
